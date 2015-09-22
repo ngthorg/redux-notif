@@ -57,7 +57,7 @@ const stylesNotif = {
     'marginBottom': 2,
     'maxHeight': 400,
     boxSizing: 'border-box',
-    boxShadow: '0 0 1px 1px rgba(10, 10, 11, .125)',
+    boxShadow: '0 1px 2px rgba(26, 26, 26, .2)',
     padding: '0.5rem',
     color: '#fff'
   },
