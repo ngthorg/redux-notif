@@ -56,7 +56,7 @@ const stylesNotif = {
     'borderRadius': 4,
     'marginBottom': 2,
     'maxHeight': 400,
-    borderSizing: 'border-box',
+    boxSizing: 'border-box',
     boxShadow: '0 0 1px 1px rgba(10, 10, 11, .125)',
     padding: '0.5rem',
     color: '#fff'
@@ -88,7 +88,7 @@ const styleCountdown = {
   },
 
   info: {
-    'background-color': '#71bbff'
+    'backgroundColor': '#71bbff'
   }
 }
 

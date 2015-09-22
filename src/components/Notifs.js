@@ -33,7 +33,7 @@ var styles = {
   top: '10px',
   right: 0,
   left: 0,
-  zIndex: 1000,
+  zIndex: 2000,
   width: '80%',
   maxWidth: 400,
   margin: 'auto'
