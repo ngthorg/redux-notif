@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-//import TransitionGroup from 'react/lib/ReactCSSTransitionGroup'
+import TransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 
 const getter = (obj, propName) => {return obj.get ? obj.get(propName) : obj[propName]}
 
@@ -16,12 +16,9 @@ class Notifs extends Component {
     })
     return (
       <div className='notif-container' style={styles}>
-      {/*Currently disabled due to: https://github.com/facebook/react/issues/1326}
       <TransitionGroup transitionName="notif">
         {items}
       </TransitionGroup>
-      */}
-     {items}
       </div>
     )
   }
@@ -29,9 +26,8 @@ class Notifs extends Component {
 
 var styles = {
   position: 'fixed',
-  top: '10px',
-  right: 0,
-  left: 0,
+  bottom: '10px',
+  left: '20px',
   zIndex: 2000,
   width: '80%',
   maxWidth: 400,

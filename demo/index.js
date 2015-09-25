@@ -41,23 +41,39 @@ class Demo extends Component {
     const { onNotifSend } = this.props
     const kinds = ['info', 'success', 'warning', 'error']
     return (
-      <div>
+      <div className="container">
         <NotifsComponent/>
-        <form className="pure-form pure-form-stacked">
-        <fieldset>
-        <legend>Re-Notif Demo</legend>
-        <label>Message</label>
-        <input id="message" type="text" value={msg} onChange={::this.handleChange} />
-        <label>Kind</label>
-        {kinds.map(k =>
-          <input className="pure-checkbox" type="radio" name={k} value={k} checked={kind === k} onChange={::this.onKindChange}>{k}</input>
-        )}
-        <p>Dismiss After (ms)</p>
-        <input type="text" value={dismissAfter} onChange={::this.handleDismissAfter} />
-        </fieldset>
-        </form>
-        <button className="pure-button pure-button-primary" onClick={::this.send}>Send</button>
-        <button className="pure-button" onClick={::this.clear}>Clear all</button>
+        <div className="row">
+          <div className="col-md-6 col-md-offset-3">
+            <h2 style={{marginBottom: '40px'}}>Re-Notif Demo</h2>
+            <form>
+              <div className="form-group row">
+                <label className="col-sm-4 form-control-label">Message</label>
+                <div className="col-sm-8">
+                  <input id="message" className="form-control" type="text" value={msg} onChange={::this.handleChange} />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-sm-4 form-control-label">Kind</label>
+                <div className="col-sm-8">
+                  {kinds.map(k =>
+                    <label className="radio-inline">
+                      <input type="radio" name={k} value={k} checked={kind === k} onChange={::this.onKindChange}>{k}</input>
+                    </label>
+                  )}
+                </div>
+              </div>
+              <div className="form-group row">
+                <label className="col-sm-4 form-control-label">Dismiss After (ms)</label>
+                <div className="col-sm-8">
+                  <input className="form-control" type="text" value={dismissAfter} onChange={::this.handleDismissAfter} />
+                </div>
+              </div>
+            </form>
+            <button className="btn btn-primary btn-sm btn-block" onClick={::this.send}>Send</button>
+            <button className="btn btn-secondary btn-sm btn-block" onClick={::this.clear}>Clear all</button>
+          </div>
+        </div>
       </div>
     )
   }
