@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import { Provider, connect } from 'react-redux'
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
-//import Notifs from '../src/components/Notifs'
-//import { notifSend, notifClear } from '../src/actions/notif'
 
 import { notifReducer, notifActions, NotifsComponent } from '../lib'
 const { notifSend, notifClear } = notifActions
@@ -13,7 +12,7 @@ const { notifSend, notifClear } = notifActions
 class Demo extends Component {
   constructor() {
     super()
-    this.state = {msg: 'hello!', kind: 'info', dismissAfter: 2000}
+    this.state = {msg: 'hello!', kind: 'info', dismissAfter: 3000}
   }
 
   handleChange (e) {
@@ -56,9 +55,9 @@ class Demo extends Component {
               <div className="form-group row">
                 <label className="col-sm-4 form-control-label">Kind</label>
                 <div className="col-sm-8">
-                  {kinds.map(k =>
-                    <label className="radio-inline">
-                      <input type="radio" name={k} value={k} checked={kind === k} onChange={::this.onKindChange}>{k}</input>
+                  {kinds.map((k, i) =>
+                    <label key={i} className="radio-inline">
+                      <input type="radio" name={k} value={k} checked={kind === k} onChange={::this.onKindChange} />{k}
                     </label>
                   )}
                 </div>
@@ -99,9 +98,9 @@ const App = connect(
   {notifSend, notifClear}
 )(Demo)
 
-React.render(
+ReactDOM.render(
   <Provider store={store}>
-    {() => <App />}
+    <App />
   </Provider>,
   document.getElementById('root')
 )

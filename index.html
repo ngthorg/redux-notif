@@ -7,7 +7,7 @@
 
     #root { padding-top: 60px; }
 
-    .notif-enter {
+    /*.notif-enter {
       opacity: .01;
       transition: opacity .6s ease-in;
     }
@@ -23,6 +23,24 @@
 
     .notif-leave.notif-leave-active {
       opacity: .01;
+    }*/
+
+    .notif-enter {
+      opacity: 0.01;
+    }
+
+    .notif-enter.notif-enter-active {
+      opacity: 1;
+      transition: all 800ms ease-in;
+    }
+
+    .notif-leave {
+      opacity: 1;
+    }
+
+    .notif-leave.notif-leave-active {
+      opacity: 0.01;
+      transition: all 600ms ease-in;
     }
 
     </style>
