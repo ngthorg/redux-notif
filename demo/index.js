@@ -41,7 +41,7 @@ class Demo extends Component {
     const kinds = ['info', 'success', 'warning', 'error']
     return (
       <div className="container">
-        <NotifsComponent/>
+        <NotifsComponent right top />
         <div className="row">
           <div className="col-md-6 col-md-offset-3">
             <h2 style={{marginBottom: '40px'}}>Re-Notif Demo</h2>
