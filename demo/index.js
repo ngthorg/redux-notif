@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import Immutable from 'immutable'
+import createLogger from 'redux-logger'
 import { Provider, connect } from 'react-redux'
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
@@ -12,7 +14,7 @@ const { notifSend, notifClear } = notifActions
 class Demo extends Component {
   constructor() {
     super()
-    this.state = {msg: 'hello!', kind: 'info', dismissAfter: 3000}
+    this.state = {msg: 'hello!', kind: 'info', dismissAfter: 4000}
   }
 
   handleChange (e) {
@@ -41,7 +43,7 @@ class Demo extends Component {
     const kinds = ['info', 'success', 'warning', 'error']
     return (
       <div className="container">
-        <NotifsComponent right top />
+        <NotifsComponent left bottom />
         <div className="row">
           <div className="col-md-6 col-md-offset-3">
             <h2 style={{marginBottom: '40px'}}>Re-Notif Demo</h2>
@@ -80,7 +82,11 @@ class Demo extends Component {
 
 // Store:
 const createStoreWithMiddleware = compose(
-  applyMiddleware(thunk)
+  applyMiddleware(thunk, createLogger({
+    transformer: (state) => {
+      return Immutable.fromJS(state).toJS();
+    }
+  }))
 )(createStore)
 
 const store = createStoreWithMiddleware(combineReducers({notifs: notifReducer}), {})

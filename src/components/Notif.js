@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import classNames from 'classnames'
 import Radium from 'radium'
 
 /**
@@ -6,8 +7,8 @@ import Radium from 'radium'
  */
 @Radium
 class Notif extends Component {
-  constructor () {
-    super()
+  constructor(props) {
+    super(props)
     this._id = new Date().getTime()
     this._onActionClick = this._onActionClick.bind(this)
   }
@@ -30,8 +31,14 @@ class Notif extends Component {
   }
 
   render() {
+    const NotifClass = classNames({
+      notif: true,
+      'notif-top': this.props.top,
+      'notif-bottom': this.props.bottom,
+    });
+
     return (
-      <div className="notif" style={[stylesNotif.base, stylesNotif[this.props.kind]]}>
+      <div className={NotifClass} style={[stylesNotif.base, stylesNotif[this.props.kind]]}>
         <div className="notif-icon"/>
         <div className="notif-content">
           <span className="notif-message">{this.props.message}</span>
@@ -57,8 +64,9 @@ const stylesNotif = {
     'marginBottom': 2,
     'maxHeight': 400,
     boxSizing: 'border-box',
+    transition: 'all 500ms ease-in',
     boxShadow: '0 1px 2px rgba(26, 26, 26, .2)',
-    padding: '0.5rem',
+    padding: '1rem',
     color: '#fff'
   },
 
@@ -75,7 +83,7 @@ const stylesNotif = {
   },
 
   error: {
-    backgroundColor: '#e74c3c'
+    backgroundColor: '#EA4335'
   }
 }
 
@@ -93,6 +101,8 @@ const styleCountdown = {
 }
 
 Notif.propTypes = {
+    top: PropTypes.bool,
+    bottom: PropTypes.bool,
   /*
    * The notification message
    */

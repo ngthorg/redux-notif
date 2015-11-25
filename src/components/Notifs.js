@@ -8,7 +8,7 @@ const getter = (obj, propName) => {return obj.get ? obj.get(propName) : obj[prop
 
 
 @connect(state => ({
-  notifs: state.get ? state.get('notifs') : state.notifs
+  notifs: state.notifs
 }))
 
 export default class Notifs extends Component {
@@ -26,12 +26,13 @@ export default class Notifs extends Component {
   }
 
   render(){
-    const { notifs } = this.props
-    const items = notifs.map((n) => {
+    const { notifs } = this.props;
+    const items = notifs.get('domain').map((n) => {
       return (
-        <Notif key={getter(n, 'id')} message={getter(n, 'message')} kind={getter(n, 'kind')}/>
+        <Notif key={getter(n, 'id')} message={getter(n, 'message')} kind={getter(n, 'kind')} {...this.props} />
       )
     })
+
     return (
       <div className='notif-container' style={{...getDefaultStyle(this.props)}}>
         <TransitionGroup transitionName="notif" transitionEnterTimeout={800} transitionLeaveTimeout={600} >
@@ -53,6 +54,7 @@ export function getDefaultStyle(props) {
 
   return {
     position: 'fixed',
+    transition: 'all 500ms ease-in',
     top: top ? '10px' : undefined,
     bottom: bottom ? '10px' : undefined,
     left: left ? '20px' : undefined,

@@ -31,7 +31,7 @@
 
     .notif-enter.notif-enter-active {
       opacity: 1;
-      transition: all 800ms ease-in;
+      transition: all 500ms ease-in;
     }
 
     .notif-leave {
@@ -40,7 +40,73 @@
 
     .notif-leave.notif-leave-active {
       opacity: 0.01;
-      transition: all 600ms ease-in;
+      transition: all 500ms ease-in;
+    }
+
+    @keyframes notifBottom { /* CSS3 */
+      0%   { transform: translate3d(0px, 100px, 0px); }
+      50% { transform: translate3d(0px, 0px, 0px); }
+      100% { transform: translate3d(0px, 0px, 0px); }
+    }
+    @-o-keyframes notifBottom { /* Opera */
+      0%   { transform: translate3d(0px, 100px, 0px); }
+      50% { transform: translate3d(0px, 0px, 0px); }
+      100% { transform: translate3d(0px, 0px, 0px); }
+    }
+    @-ms-keyframes notifBottom { /* IE */
+      0%   { transform: translate3d(0px, 100px, 0px); }
+      50% { transform: translate3d(0px, 0px, 0px); }
+      100% { transform: translate3d(0px, 0px, 0px); }
+    }
+    @-moz-keyframes notifBottom { /* Firefox */
+      0%   { transform: translate3d(0px, 100px, 0px); }
+      50% { transform: translate3d(0px, 0px, 0px); }
+      100% { transform: translate3d(0px, 0px, 0px); }
+    }
+    @-webkit-keyframes notifBottom { /* Webkit */
+      0%   { transform: translate3d(0px, 100px, 0px); }
+      50% { transform: translate3d(0px, 0px, 0px); }
+      100% { transform: translate3d(0px, 0px, 0px); }
+    }
+    .notif-bottom {
+      animation: notifBottom .8s ease-out 1; /* CSS3 */
+      -o-animation: notifBottom .8s ease-out 1; /* Opera */
+      -ms-animation: notifBottom .8s ease-out 1; /* EI */
+      -moz-animation: notifBottom .8s ease-out 1; /* Firefox */
+      -webkit-animation: notifBottom .8s ease-out 1; /* Webkit */
+    }
+
+    @keyframes notifTop { /* CSS3 */
+      0%   { transform: translate3d(0px, -100px, 0px); }
+      50% { transform: translate3d(0px, 0px, 0px); }
+      100% { transform: translate3d(0px, 0px, 0px); }
+    }
+    @-o-keyframes notifTop { /* Opera */
+      0%   { transform: translate3d(0px, -100px, 0px); }
+      50% { transform: translate3d(0px, 0px, 0px); }
+      100% { transform: translate3d(0px, 0px, 0px); }
+    }
+    @-ms-keyframes notifTop { /* IE */
+      0%   { transform: translate3d(0px, -100px, 0px); }
+      50% { transform: translate3d(0px, 0px, 0px); }
+      100% { transform: translate3d(0px, 0px, 0px); }
+    }
+    @-moz-keyframes notifTop { /* Firefox */
+      0%   { transform: translate3d(0px, -100px, 0px); }
+      50% { transform: translate3d(0px, 0px, 0px); }
+      100% { transform: translate3d(0px, 0px, 0px); }
+    }
+    @-webkit-keyframes notifTop { /* Webkit */
+      0%   { transform: translate3d(0px, -100px, 0px); }
+      50% { transform: translate3d(0px, 0px, 0px); }
+      100% { transform: translate3d(0px, 0px, 0px); }
+    }
+    .notif-top {
+      animation: notifTop .8s ease-out 1; /* CSS3 */
+      -o-animation: notifTop .8s ease-out 1; /* Opera */
+      -ms-animation: notifTop .8s ease-out 1; /* IE */
+      -moz-animation: notifTop .8s ease-out 1; /* Firefox */
+      -webkit-animation: notifTop .8s ease-out 1; /* Webkit */
     }
 
     </style>
